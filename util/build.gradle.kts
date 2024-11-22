@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+version = "1.0.1"
+
 android {
     namespace = "com.soten.util"
     compileSdk = 34
