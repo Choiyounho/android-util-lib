@@ -1,8 +1,10 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
+group = "com.github.choiyounho"
 version = "1.0.1"
 
 android {
@@ -42,4 +44,18 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = "com.github.choiyounho"
+                artifactId = "android-util"
+                version = "1.0.1"
+
+                from(components["release"])
+            }
+        }
+    }
 }
